@@ -1,4 +1,6 @@
-public class algoritmos {
+package com.entornos.VicenteMolisBueno.algoritmos;
+
+public abstract class algoritmos {
 
 	/*
 	 * Este es el metodo para devolver la secuencia fibonacci, recibe el numero que se quiere saber y
@@ -6,49 +8,43 @@ public class algoritmos {
 	 * @return b
 	 * */
 	
-	public int fibonacci(int numero) {
-		if(numero < 0) {
-			throw new IllegalArgumentException();
-		}
-		int a = 0, b = a + 1;
-
-        for (int i = 0; i <= numero; i++) {
-            int temporal = a;
+	public static int fibonacci(int numero) {
+        if (numero < 0) throw new IllegalArgumentException("El número debe ser no negativo");
+        if (numero == 1) return 1;
+        int a = 0, b = 1, resultado = 0;
+        for (int i = 2; i <= numero; i++) {
+            resultado = a + b;
             a = b;
-            b = temporal + b;
-        if(i == numero) {
-        	return b;
+            b = resultado;
         }
-        }
-        return 0;
-	}
+        return resultado;
+    }
 	/*
-	 * Este metodo recibe un numero y se le hace el factorial, con un bucle donde se multiplica i por i+1 hasta 
-	 * el numero que indicamos incluido, y devuelve factorial.
+	 * Este metodo recibe un numero y se le hace el factorial y devuelve factorial.
 	 * @return factorial
 	 * */
-	public int factorial(int numero) {
-		if(numero < 0) {
-			throw new IllegalArgumentException();
-		}
-		int factorial = 0;
-		for (int i = 1; i <= numero; i++) {
-            factorial = i*(i+1);
+	public static int factorial(int numero) {
+        if (numero <= 0) throw new IllegalArgumentException("El número debe ser no negativo");
+        int resultado = 1;
+        for (int i = 2; i <= numero; i++) {
+            resultado *= i;
         }
-		return factorial;
-	}
+        return resultado;
+    }
 	/*
 	 * Este metodo busca si el numero que recibe es primo o no, y devuelve true o false
 	 * @return true / false   
 	 * */
-	public boolean primo(int numero) {
-		if(numero < 2) {
-			throw new IllegalArgumentException();
-		}
-		if(numero % 2 == 0) {
-			return false;
-		}
-		return true;
-	}
+	public static boolean primo(int numero) {
+		if (numero <= 0) throw new IllegalArgumentException("El número debe ser no negativo");
+        if (numero <= 1) return false;
+        if (numero == 2) return true;
+        if (numero % 2 == 0) return false;
+        for (int i = 3; i <= Math.sqrt(numero); i += 2) {
+            if (numero % i == 0) return false;
+        }
+        return true;
+    }
 	
 }
+

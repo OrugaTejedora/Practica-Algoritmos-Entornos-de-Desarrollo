@@ -1,3 +1,5 @@
+package com.entornos.VicenteMolisBueno.algoritmos;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -7,31 +9,28 @@ class algoritmosTest {
 
 	static algoritmos a;
 	
-	@BeforeAll
-	static void setup() {
-		a = new algoritmos() {};
-	}
+	
 	
 	@Test
 	void testFibonacci() {
-		assertEquals(1,a.fibonacci(1));
-		assertEquals(1,a.fibonacci(2));
-		assertEquals(2,a.fibonacci(3));	
+		assertEquals(1,algoritmos.fibonacci(1));
+		assertEquals(1,algoritmos.fibonacci(2));
+		assertEquals(2,algoritmos.fibonacci(3));	
 
 	}
 
 	@Test
 	void testFactorial() {
-		assertEquals(1,a.factorial(1));
-		assertEquals(2,a.factorial(2));
-		assertEquals(6,a.factorial(3));
+		assertEquals(1,algoritmos.factorial(1));
+		assertEquals(2,algoritmos.factorial(2));
+		assertEquals(6,algoritmos.factorial(3));
 	}
 
 	@Test
 	void testPrimo() {
-		assertEquals(true,a.primo(5));
-		assertEquals(false,a.primo(6));
-		assertEquals(false,a.primo(9));
+		assertEquals(true,algoritmos.primo(5));
+		assertEquals(false,algoritmos.primo(6));
+		assertEquals(false,algoritmos.primo(9));
 	}
 	
 	
@@ -41,7 +40,7 @@ class algoritmosTest {
 	void testFalloFibonacci() {
 		
 		assertThrows(IllegalArgumentException.class,() -> 
-		{a.fibonacci(-1);
+		{algoritmos.fibonacci(-1);
 			});
 	}
 	
@@ -49,7 +48,7 @@ class algoritmosTest {
 	void testFalloFactorial() {
 		
 		assertThrows(IllegalArgumentException.class,() -> 
-		{a.factorial(0);
+		{algoritmos.factorial(0);
 			});
 	}
 	
@@ -57,17 +56,33 @@ class algoritmosTest {
 	void testFalloPrimo() {
 		
 		assertThrows(IllegalArgumentException.class,() -> 
-		{a.primo(-1);
+		{algoritmos.primo(-1);
 			});
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
